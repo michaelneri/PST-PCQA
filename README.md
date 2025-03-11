@@ -5,7 +5,7 @@ Official repository to the article "Low-Complexity Patch-based No-Reference Poin
 
 Michael Neri*, Federica Battisti°
 
-*Department of Industrial, Electronic, and Mechanical Engineering, Roma Tre University, Rome, Italy
+*Faculty of Information Technology and Communication Sciences, Tampere University, Tampere, Finland
 
 °Department of Information Engineering, University of Padua, Padua, Italy 
 
