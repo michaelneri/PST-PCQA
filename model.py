@@ -26,9 +26,9 @@ class Local_op(nn.Module):
         x_res = x4.reshape(b, n, -1).permute(0, 2, 1)
         return x_res
 
-class ARKP_Net(nn.Module):
+class S_TFE(nn.Module):
     def __init__(self, point_num):
-        super(ARKP_Net, self).__init__()
+        super(S_TFE, self).__init__()
         self.conv1 = nn.Conv1d(6, 64, kernel_size=1, bias=False)
         self.bn1 = nn.BatchNorm1d(64)
         self.conv2 = nn.Conv1d(64, 1024, kernel_size=1, stride=int(point_num/256), bias=False)
@@ -67,15 +67,15 @@ class GlobalVariancePooling(nn.Module):
         
         return variance
 
-class ARKP_Double(nn.Module):
+class PST_PCQA(nn.Module):
     def __init__(self, points_texture:int, points_structure:int, dropout:float, patches:int):
-        super(ARKP_Double, self).__init__()
+        super(PST_PCQA, self).__init__()
         self.points_texture = points_texture
         self.points_structure = points_structure
         self.dropout = dropout
 
-        self.Net_b = ARKP_Net(point_num = self.points_structure)
-        self.Net_s = ARKP_Net(point_num = self.points_texture)
+        self.Net_b = S_TFE(point_num = self.points_structure)
+        self.Net_s = S_TFE(point_num = self.points_texture)
         self.CBR = nn.Sequential(nn.Conv1d(1024, 512, kernel_size=1, groups=4, bias=False),  # Grouped Convolution
                         nn.BatchNorm1d(512),
                         nn.ELU())
@@ -122,7 +122,7 @@ class ARKP_Double(nn.Module):
 
 ###### LIGHTNING MODULE ######
     
-class ARKPModule(LightningModule):
+class PST_PCQAModule(LightningModule):
 
     def __init__(self, points_texture:int, points_structure:int, dropout:float, patches:int, lr:float):
         super().__init__()
@@ -130,7 +130,7 @@ class ARKPModule(LightningModule):
         self.points_structure = points_structure
         self.dropout = dropout
         self.lr = lr
-        self.model = ARKP_Double(self.points_texture, self.points_structure, self.dropout, patches)
+        self.model = PST_PCQA(self.points_texture, self.points_structure, self.dropout, patches)
 
         # loss function
         self.loss_function = torch.nn.MSELoss()
@@ -184,7 +184,7 @@ class ARKPModule(LightningModule):
 
 if __name__ == "__main__":
     # test the model 
-    model = ARKPModule(8192, 1024, 0.5, 16, 0.0001)
+    model = PST_PCQAModule(8192, 1024, 0.5, 16, 0.0001)
     dummy_b, dummy_s = torch.rand(2, 16, 1024, 6), torch.rand(2, 16, 8192, 6)
     mos, mos_per_patch = model(dummy_b, dummy_s)
     print(mos.shape)
