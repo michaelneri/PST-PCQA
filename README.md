@@ -1,4 +1,7 @@
 # PST-PCQA
+
+<img src="figures/Fig2.jpg"/>
+
 Official repository to the article "Low-Complexity Patch-based No-Reference Point Cloud Quality Metric exploiting Weighted Structure and Texture Features" accepted for publication in IEEE Transactions on Broadcasting.
 
 ## Authors
