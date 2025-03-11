@@ -10,7 +10,7 @@ Michael Neri*, Federica Battisti°
 
 *Faculty of Information Technology and Communication Sciences, Tampere University, Tampere, Finland
 
-°Department of Information Engineering, University of Padua, Padua, Italy 
+°Department of Information Engineering, University of Padova, Padua, Italy 
 
 ## Reference
 
