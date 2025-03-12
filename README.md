@@ -24,9 +24,17 @@ The structure of the project should be like the following:
 - 📄 patch_extraction.py (To extract patches before training)
 - 📄 util.py 
 - 📓 training_val_test_{WPC,SJTU,SIAT}.py (code for training, validating, and testing PST-PCQA on WPC, SIAT, and SJTU datasets)
+  
 
 First, run patch_extraction.py to create, using WPC dataset as an example, 📁 data/WPC/distorted_npz_K folder containing the K patches for each point cloud.
 Then, it is possible to run the trainin_val_test_WPC.py script, targeting the created folder containing the patches.
+
+# Inference
+
+The repository contains 📄 example_inference.ipynb notebook to provide a minimal example on how to extract patches and perform inference on the fly. In addition, a visualization of the patch scores is also available (Note: Visualization is computationally expensive). 
+The model takes approximately 50 ms to perform inference on a single NVIDIA RTX 4070.
+
+<img src="figures/example_inference.png"/>
 
 
 ## Authors
