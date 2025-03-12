@@ -1,4 +1,4 @@
-# PST-PCQA
+# PST-PCQA: Low-Complexity Patch-based No-Reference Point Cloud Quality Metric exploiting Weighted Structure and Texture Features
 
 <img src="figures/Fig2.jpg"/>
 
