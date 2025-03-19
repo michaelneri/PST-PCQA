@@ -58,6 +58,6 @@ If you use part of this code, please cite the following article
   volume={},
   number={},
   pages={},
-  doi={}
+  doi={10.1109/TBC.2025.3553305}
   }
 ```
