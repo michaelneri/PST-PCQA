@@ -8,7 +8,7 @@ Official repository to the article "Low-Complexity Patch-based No-Reference Poin
 The structure of the project should be like the following:
 - 📁 best_models/WPC
     - 🧠 PST_PCQAModule_K_16.ckpt (model trained on WPC with 16 patches)
-    - 🧠 PST_PCQAModule_K_8.ckpt (model trained on WPC with 16 patches)
+    - 🧠 PST_PCQAModule_K_8.ckpt (model trained on WPC with 8 patches)
 - 📁 data (you have to download the datasets)
     - 📁 WPC
       - 📁 distorted
