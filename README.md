@@ -51,13 +51,13 @@ If you use part of this code, please cite the following article
 
 ```
 @ARTICLE{Neri_TBC_2025,
-  author={Neri, M. and Battisti, F.},
-  journal={IEEE Transactions on Broadcasting}, 
-  title={{Low-Complexity Patch-based No-Reference Point Cloud Quality Metric exploiting Weighted Structure and Texture Features}}, 
-  year={2025},
-  volume={},
-  number={},
-  pages={},
-  doi={10.1109/TBC.2025.3553305}
+   author={Neri, Michael and Battisti, Federica},
+   journal={IEEE Transactions on Broadcasting}, 
+   title={Low-Complexity Patch-Based No-Reference Point Cloud Quality Metric Exploiting Weighted Structure and Texture Features}, 
+   year={2025},
+   volume={71},
+   number={2},
+   pages={631-640},
+   doi={10.1109/TBC.2025.3553305}
   }
 ```
