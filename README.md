@@ -22,7 +22,9 @@ The structure of the project should be like the following:
 - 📄 environment.yml (Conda environment to import)
 - 📄 model.py (proposed approach)
 - 📄 patch_extraction.py (To extract patches before training)
-- 📄 util.py 
+- 📄 util.py
+- 📄 data.py
+- 📄 data_cross.py 
 - 📓 training_val_test_{WPC,SJTU,SIAT}.py (code for training, validating, and testing PST-PCQA on WPC, SIAT, and SJTU datasets)
   
 
