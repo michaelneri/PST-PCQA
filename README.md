@@ -34,7 +34,7 @@ Then, it is possible to run the trainin_val_test_WPC.py script, targeting the cr
 # Inference
 
 The repository contains 📄 example_inference.ipynb notebook to provide a minimal example on how to extract patches and perform inference on the fly. In addition, a visualization of the patch scores is also available (Note: Visualization is computationally expensive). 
-The model takes approximately 50 ms to perform inference on a single NVIDIA RTX 4070.
+The model takes approximately 70 ms to perform inference on a single NVIDIA RTX 4070.
 
 <img src="figures/example_inference.png"/>
 
