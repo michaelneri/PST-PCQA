@@ -38,6 +38,33 @@ The model takes approximately 70 ms to perform inference on a single NVIDIA RTX 
 
 <img src="figures/example_inference.png"/>
 
+Or download the checkpoint from the Hugging Face Hub https://huggingface.co/michaelneri/PST-PCQA
+
+```python
+import torch
+from huggingface_hub import hf_hub_download
+from model import PST_PCQAModule   # from the cloned GitHub repository
+
+K = 16  # use 8 with "PST_PCQAModule_K_8.ckpt"
+ckpt_path = hf_hub_download(
+    repo_id="michaelneri/PST-PCQA",          
+    filename=f"PST_PCQAModule_K_{K}.ckpt",
+)
+
+model = PST_PCQAModule.load_from_checkpoint(
+    ckpt_path,
+    map_location="cuda" if torch.cuda.is_available() else "cpu",
+    points_texture=8192, points_structure=1024,
+    dropout=0.0, patches=K, lr=1e-3,
+).eval()
+
+# Shape check with dummy inputs: (batch, K, points, xyz+rgb)
+x_b = torch.rand(1, K, 1024, 6, device=model.device)   # structure input
+x_s = torch.rand(1, K, 8192, 6, device=model.device)   # texture input
+with torch.no_grad():
+    mos, mos_per_patch = model(x_b, x_s)
+print(mos.shape, mos_per_patch.shape)  # torch.Size([1]) torch.Size([1, 16])
+```
 
 ## Authors
 
